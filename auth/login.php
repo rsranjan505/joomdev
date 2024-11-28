@@ -29,6 +29,7 @@
                 $_SESSION['first_name'] = $user['first_name'];
                 $_SESSION['user_type'] = $user['user_type'];
                 $_SESSION['last_login'] = $user['last_login'];
+                $_SESSION['last_password_change'] = $user['last_password_change'];
 
                 $sql = "UPDATE users SET last_login = NOW() WHERE id = ".$_SESSION['user_id'];
                 $conn->query($sql);

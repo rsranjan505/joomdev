@@ -27,6 +27,7 @@
                 $sql = "UPDATE users SET password = '".password_hash($new_password, PASSWORD_DEFAULT)."', last_login = '".date('Y-m-d H:i:s')."', last_password_change = '".date('Y-m-d H:i:s')."' WHERE email = '".$_SESSION['email']."'";
                 if ($conn->query($sql) === TRUE) {
                     $_SESSION['last_login'] = date('Y-m-d H:i:s');
+                    $_SESSION['last_password_change'] = date('Y-m-d H:i:s');
                     $_SESSION['error'] = false;
                     $_SESSION['message'] = 'Password changed successfully';
                     header("Location: ../dashboard.php");

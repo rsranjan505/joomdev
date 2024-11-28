@@ -55,14 +55,14 @@
         }
         else
         {
-            if($_SESSION['last_login'] == null)
+            if($_SESSION['last_password_change'] == null)
             {
                 include('pages/user-change-password.php');
 
             }else{
 
                 $datetime1 = new DateTime(date('Y-m-d H:i:s'));
-                $datetime2 = new DateTime($_SESSION['last_login']);
+                $datetime2 = new DateTime($_SESSION['last_password_change']);
                 $interval = $datetime1->diff($datetime2);
                 
                 if($interval->format('%a') > 30)
